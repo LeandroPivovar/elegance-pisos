@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { brands, galleryImages, reviews } from "./catalog-data";
+import { BrandCatalog } from "@/components/site/brand-catalog";
+import { ServiceGallery } from "@/components/site/service-gallery";
+import { ReviewsCarousel } from "@/components/site/reviews-carousel";
 import {
   ArrowDownRight, ArrowRight, Check, ChevronRight, Hammer, Layers3,
   Menu, MessageCircle, Phone, Ruler, ShieldCheck, Sparkles,
@@ -21,7 +25,7 @@ export default function Home() {
           <span className="brand-name">Elegance <i>Pisos</i></span>
         </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#colecoes">Coleções</a><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a>
+          <a href="#colecoes">Coleções</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
         </nav>
         <a className="header-contact" href={whatsappUrl} target="_blank" rel="noreferrer">
           Falar com especialista <ArrowDownRight size={17} />
@@ -29,7 +33,7 @@ export default function Home() {
         <details className="mobile-menu">
           <summary aria-label="Abrir menu"><Menu size={22} /></summary>
           <nav aria-label="Navegação móvel">
-            <a href="#colecoes">Coleções</a><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a>
+            <a href="#colecoes">Coleções</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">Solicitar orçamento</a>
           </nav>
         </details>
@@ -70,6 +74,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section catalog-section" id="catalogo">
+        <div className="page-shell">
+          <div className="section-heading">
+            <p className="section-kicker">Catálogo</p>
+            <h2>Linhas, formatos e cores de cada marca.</h2>
+            <p>Escolha uma marca para ver as linhas disponíveis, as especificações técnicas e as opções de cor. Na dúvida, a equipe ajuda a comparar.</p>
+          </div>
+          <BrandCatalog brands={brands} />
+        </div>
+      </section>
+
+      <section className="section page-shell gallery-section" id="galeria">
+        <div className="section-heading">
+          <p className="section-kicker">Serviços realizados</p>
+          <h2>Obras entregues pela nossa equipe.</h2>
+          <p>Registros de instalações de pisos, rodapés e escadas em casas, apartamentos e espaços comerciais da região.</p>
+        </div>
+        <ServiceGallery images={galleryImages} />
+      </section>
+
       <section className="precision-section" id="servicos">
         <div className="precision-visual" aria-hidden="true"><div className="floor-lines" /><div className="precision-badge"><Ruler size={27} /><span>Detalhe é<br />tudo.</span></div></div>
         <div className="precision-copy">
@@ -92,6 +116,17 @@ export default function Home() {
           <article><span>01</span><MessageCircle /><h3>Conte seu projeto</h3><p>Envie medidas, fotos ou apenas a sua ideia inicial pelo WhatsApp.</p></article>
           <article><span>02</span><Sparkles /><h3>Escolha o acabamento</h3><p>Comparamos opções coerentes com o ambiente e com a sua rotina.</p></article>
           <article><span>03</span><Check /><h3>Aprove e transforme</h3><p>Alinhamos os detalhes e executamos a instalação com cuidado.</p></article>
+        </div>
+      </section>
+
+      <section className="section testimonials" id="depoimentos">
+        <div className="page-shell">
+          <p className="section-kicker">Avaliações reais</p>
+          <div className="testimonials-heading">
+            <h2>A confiança aparece no resultado.</h2>
+            <p>Avaliações 5 estrelas deixadas no Google por clientes que já transformaram seus ambientes com a nossa equipe.</p>
+          </div>
+          <ReviewsCarousel reviews={reviews} />
         </div>
       </section>
 
