@@ -69,9 +69,8 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Elegance Pisos — início">
-          <span className="brand-mark" aria-hidden="true"><span>E</span><span>P</span></span>
-          <span className="brand-name">Elegance <i>Pisos</i></span>
+        <a className="brand" href="#inicio" aria-label="Elegance Pisos, início">
+          <Image className="brand-logo" src="/assets/logo-elegance-pisos.webp" alt="Elegance Pisos" width={480} height={395} priority />
         </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#colecoes">Coleções</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
@@ -207,7 +206,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="brand footer-brand"><span className="brand-mark" aria-hidden="true"><span>E</span><span>P</span></span><span className="brand-name">Elegance <i>Pisos</i></span></div>
+        <div className="brand footer-brand"><Image className="brand-logo" src="/assets/logo-elegance-pisos.webp" alt="Elegance Pisos" width={480} height={395} /></div>
         <p>Venda e instalação de pisos com atendimento personalizado.</p>
         <a href="#inicio">Voltar ao topo <ChevronRight size={16} /></a>
       </footer>

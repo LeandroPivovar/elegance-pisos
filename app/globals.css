@@ -39,6 +39,8 @@ a { color: inherit; text-decoration: none; }
 .brand-mark span:last-child { transform: translate(5px,4px); font-size: 17px; }
 .brand-name { text-transform: uppercase; letter-spacing: .13em; font-size: 13px; font-weight: 700; }
 .brand-name i { color: var(--gold); font-family: Georgia,serif; font-weight: 400; }
+.brand-logo { width: auto; height: 72px; }
+footer .brand-logo { height: 96px; }
 .desktop-nav { display: flex; gap: 34px; font-size: 13px; }
 .desktop-nav a { opacity: .74; transition: opacity .2s; }
 .desktop-nav a:hover { opacity: 1; }
@@ -141,6 +143,7 @@ footer > a { justify-self: end; display: flex; align-items: center; gap: 5px; }
 }
 @media (max-width: 620px) {
   .brand-name { font-size: 11px; } .brand-mark { width: 35px; height: 35px; }
+  .brand-logo { height: 60px; }
   .hero { height: auto; min-height: 760px; align-items: flex-start; padding-top: 145px; }
   .hero-image { object-position: 66% center; }
   .hero-shade { background: linear-gradient(90deg,rgba(9,8,7,.91),rgba(9,8,7,.46)),linear-gradient(0deg,rgba(9,8,7,.88),transparent 55%); }

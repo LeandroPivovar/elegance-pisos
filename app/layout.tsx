@@ -8,7 +8,7 @@ const cormorant = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-cor
 export const metadata: Metadata = {
   title: "Elegance Pisos | Venda e Instalação",
   description: "Pisos e revestimentos com curadoria, medição e instalação especializada.",
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png", apple: "/apple-touch-icon.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

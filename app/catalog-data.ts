@@ -519,7 +519,6 @@ export const galleryImages = [
   { src: "/assets/galeria/servico-04.jpg", alt: "Escada revestida com piso amadeirado e perfis de acabamento" },
   { src: "/assets/galeria/servico-14.jpg", alt: "Sala com piso escuro e rodapé branco" },
   { src: "/assets/galeria/servico-16.jpg", alt: "Sala de TV com piso amadeirado claro" },
-  { src: "/assets/galeria/servico-06.jpg", alt: "Escritório com piso vinílico amadeirado" },
   { src: "/assets/galeria/servico-10.jpg", alt: "Sala ampla com piso cinza amadeirado e rodapé branco" },
   { src: "/assets/galeria/servico-01.jpg", alt: "Loja comercial com piso vinílico amadeirado" },
   { src: "/assets/galeria/servico-09.jpg", alt: "Quarto com piso vinílico cinza" },
