@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { brands, reviews } from "./catalog-data";
+import { brands, galleryImages, reviews } from "./catalog-data";
 import { BrandCatalog } from "@/components/site/brand-catalog";
+import { ServiceGallery } from "@/components/site/service-gallery";
 import { ServicePhotoGallery } from "@/components/site/service-photo-gallery";
 import { ReviewsCarousel } from "@/components/site/reviews-carousel";
 import {
@@ -109,6 +110,26 @@ export default function Home() {
 
       <section className="section page-shell gallery-section" id="galeria">
         <div className="section-heading">
+          <p className="section-kicker">Serviços realizados</p>
+          <h2>Obras entregues pela nossa equipe.</h2>
+          <p>Registros de instalações de pisos, rodapés e escadas em casas, apartamentos e espaços comerciais da região.</p>
+        </div>
+        <ServiceGallery images={galleryImages} />
+      </section>
+
+      <section className="section testimonials" id="depoimentos">
+        <div className="page-shell">
+          <p className="section-kicker">Avaliações reais</p>
+          <div className="testimonials-heading">
+            <h2>A confiança aparece no resultado.</h2>
+            <p>Avaliações 5 estrelas deixadas no Google por clientes que já transformaram seus ambientes com a nossa equipe.</p>
+          </div>
+          <ReviewsCarousel reviews={reviews} />
+        </div>
+      </section>
+
+      <section className="section page-shell gallery-section" id="servicos">
+        <div className="section-heading">
           <p className="section-kicker">Nossos serviços</p>
           <h2>Acabamentos para cada ambiente.</h2>
           <p>Veja os detalhes de cada serviço em ambientes reais.</p>
@@ -123,17 +144,6 @@ export default function Home() {
               <ServicePhotoGallery title={service.title} photos={service.photos} />
             </section>
           ))}
-        </div>
-      </section>
-
-      <section className="section testimonials" id="depoimentos">
-        <div className="page-shell">
-          <p className="section-kicker">Avaliações reais</p>
-          <div className="testimonials-heading">
-            <h2>A confiança aparece no resultado.</h2>
-            <p>Avaliações 5 estrelas deixadas no Google por clientes que já transformaram seus ambientes com a nossa equipe.</p>
-          </div>
-          <ReviewsCarousel reviews={reviews} />
         </div>
       </section>
 
