@@ -73,7 +73,7 @@ export default function Home() {
           <Image className="brand-logo" src="/assets/logo-elegance-pisos.webp" alt="Elegance Pisos" width={480} height={395} priority />
         </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#colecoes">Coleções</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
+          <a href="#colecoes">Coleções</a><a href="#marcas">Marcas</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
         </nav>
         <a className="header-contact" href={whatsappUrl} target="_blank" rel="noreferrer">
           Falar com especialista <ArrowDownRight size={17} />
@@ -81,7 +81,7 @@ export default function Home() {
         <details className="mobile-menu">
           <summary aria-label="Abrir menu"><Menu size={22} /></summary>
           <nav aria-label="Navegação móvel">
-            <a href="#colecoes">Coleções</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
+            <a href="#colecoes">Coleções</a><a href="#marcas">Marcas</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">Solicitar orçamento</a>
           </nav>
         </details>
@@ -158,6 +158,24 @@ export default function Home() {
               <div className="collection-copy"><h3>{item.title}</h3><p>{item.copy}</p></div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="brands-section" id="marcas" aria-labelledby="marcas-titulo">
+        <div className="page-shell">
+          <div className="brands-heading">
+            <p className="section-kicker">Marcas parceiras</p>
+            <h2 id="marcas-titulo">Trabalhamos com fabricantes que <em>respeitam o seu projeto.</em></h2>
+          </div>
+          <ul className="brand-wall">
+            {brands.map((brand) => (
+              <li key={brand.slug}>
+                <a href={`#catalogo-${brand.slug}`} aria-label={`Ver catálogo ${brand.name}`}>
+                  <Image src={brand.logo.src} alt={brand.name} width={brand.logo.width} height={brand.logo.height} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
