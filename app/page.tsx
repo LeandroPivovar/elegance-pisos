@@ -3,6 +3,7 @@ import { brands, galleryImages, reviews } from "./catalog-data";
 import { BrandCatalog } from "@/components/site/brand-catalog";
 import { ServiceGallery } from "@/components/site/service-gallery";
 import { ServicePhotoGallery } from "@/components/site/service-photo-gallery";
+import { SupplyGrid, type SupplyItem } from "@/components/site/supply-grid";
 import { ReviewsCarousel } from "@/components/site/reviews-carousel";
 import {
   ArrowDownRight, ArrowRight, Check, ChevronRight, Hammer, Layers3,
@@ -59,6 +60,34 @@ const services = [
   },
 ];
 
+const supplies: SupplyItem[] = [
+  { title: "Primer 516 Contrapiso", category: "Preparação", image: "/assets/insumos/primer-516-contrapiso.png", alt: "Primer 516 Contrapiso Protec" },
+  { title: "Massa Niveladora Quartzolit", category: "Preparação", image: "/assets/insumos/massa-niveladora-quartzolit.png", alt: "Massa niveladora Piso Prepara Pro Quartzolit" },
+  { title: "Cola para Piso Vinílico", category: "Adesivos", image: "/assets/insumos/cola-piso-vinilico-polivedo.png", alt: "Cola para piso vinílico Polivedo" },
+  { title: "Primer Multi Bases", category: "Preparação", image: "/assets/insumos/primer-multi-bases-protec.png", alt: "Primer Multi Bases Protec" },
+  { title: "Adesivo Acrílico Protec", category: "Adesivos", image: "/assets/insumos/adesivo-acrilico-protec.png", alt: "Adesivo Acrílico Protec para pisos vinílicos" },
+  { title: "Ultrabond ECO 4 LVT", category: "Adesivos", image: "/assets/insumos/ultrabond-eco-4-lvt.png", alt: "Adesivo Mapei Ultrabond ECO 4 LVT" },
+  { title: "Massa Regularização Planiprep", category: "Preparação", image: "/assets/insumos/massa-regularizacao-planiprep.png", alt: "Massa de regularização de piso Mapei Planiprep" },
+  { title: "Tarkett Globalfix", category: "Adesivos", image: "/assets/insumos/tarkett-globalfix.png", alt: "Adesivo Tarkett Globalfix" },
+  { title: "Tarkett Globalfix 23kg", category: "Adesivos", image: "/assets/insumos/tarkett-globalfix-detalhe.png", alt: "Adesivo Tarkett Globalfix 23kg" },
+  { title: "Bloqueador de Vapor Polivedo", category: "Impermeabilização", image: "/assets/insumos/bloqueador-vapor-polivedo.png", alt: "Bloqueador de vapor de umidade Polivedo" },
+  { title: "Cantoneira", category: "Perfis", image: "/assets/insumos/cantoneira.png", alt: "Perfil cantoneira para acabamento" },
+  { title: "Perfil Redutor", category: "Perfis", image: "/assets/insumos/perfil-redutor.png", alt: "Perfil redutor para acabamento de piso" },
+  { title: "Perfil T", category: "Perfis", image: "/assets/insumos/perfil-t.png", alt: "Perfil T para acabamento de piso" },
+  { title: "Perfil Arremate", category: "Perfis", image: "/assets/insumos/perfil-arremate.png", alt: "Perfil arremate para acabamento de piso" },
+  { title: "Rodameio 3cm", category: "Rodameios", image: "/assets/insumos/rodameio-3cm.png", alt: "Rodameio branco de 3 centímetros" },
+  { title: "Rodameio 4cm", category: "Rodameios", image: "/assets/insumos/rodameio-4cm.png", alt: "Rodameio branco de 4 centímetros" },
+  { title: "Rodameio 6cm", category: "Rodameios", image: "/assets/insumos/rodameio-6cm.png", alt: "Rodameio branco de 6 centímetros" },
+  { title: "Painel Ripado Slim Claro", category: "Painéis", image: "/assets/insumos/painel-ripado-slim-claro.png", alt: "Painel ripado slim em tom claro" },
+  { title: "Painel Ripado Madeira Escuro", category: "Painéis", image: "/assets/insumos/painel-ripado-madeira-escuro.png", alt: "Painel ripado em madeira escura" },
+  { title: "Painel Ripado Liso Cinza", category: "Painéis", image: "/assets/insumos/painel-ripado-liso-cinza.png", alt: "Painel ripado liso cinza" },
+  { title: "Painel Ripado Cru", category: "Painéis", image: "/assets/insumos/painel-ripado-cru.png", alt: "Painel ripado em tom cru" },
+  { title: "Painel Ripado Cumaru", category: "Painéis", image: "/assets/insumos/painel-ripado-cumaru.png", alt: "Painel ripado em tom cumaru" },
+  { title: "Painel Ripado Liso Claro", category: "Painéis", image: "/assets/insumos/painel-ripado-liso-claro.png", alt: "Painel ripado liso claro" },
+  { title: "Massa Autonivelante Base", category: "Preparação", image: "/assets/insumos/massa-autonivelante-base.png", alt: "Massa autonivelante Base Protec" },
+  { title: "Primer WP Protec", category: "Impermeabilização", image: "/assets/insumos/primer-wp-protec.png", alt: "Primer WP Protec" },
+];
+
 const collections = [
   { number: "01", title: "Madeira", copy: "Calor natural, veios marcantes e acabamento que atravessa o tempo.", className: "sample-walnut" },
   { number: "02", title: "Laminados", copy: "Praticidade para a rotina com visual preciso e instalação limpa.", className: "sample-oak" },
@@ -73,7 +102,7 @@ export default function Home() {
           <Image className="brand-logo" src="/assets/logo-elegance-pisos.webp" alt="Elegance Pisos" width={480} height={395} priority />
         </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#colecoes">Coleções</a><a href="#marcas">Marcas</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
+          <a href="#colecoes">Coleções</a><a href="#marcas">Marcas</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#insumos">Insumos</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
         </nav>
         <a className="header-contact" href={whatsappUrl} target="_blank" rel="noreferrer">
           Falar com especialista <ArrowDownRight size={17} />
@@ -81,7 +110,7 @@ export default function Home() {
         <details className="mobile-menu">
           <summary aria-label="Abrir menu"><Menu size={22} /></summary>
           <nav aria-label="Navegação móvel">
-            <a href="#colecoes">Coleções</a><a href="#marcas">Marcas</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
+            <a href="#colecoes">Coleções</a><a href="#marcas">Marcas</a><a href="#catalogo">Catálogo</a><a href="#galeria">Galeria</a><a href="#insumos">Insumos</a><a href="#processo">Como funciona</a><a href="#depoimentos">Avaliações</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">Solicitar orçamento</a>
           </nav>
         </details>
@@ -144,6 +173,15 @@ export default function Home() {
             </section>
           ))}
         </div>
+      </section>
+
+      <section className="section page-shell supplies-section" id="insumos">
+        <div className="section-heading">
+          <p className="section-kicker">Insumos</p>
+          <h2>Materiais para preparar, instalar e finalizar.</h2>
+          <p>Produtos de apoio para contrapiso, colagem, acabamento e painéis, organizados para facilitar a escolha no orçamento.</p>
+        </div>
+        <SupplyGrid items={supplies} />
       </section>
 
       <section className="collections section-shell" id="colecoes">
