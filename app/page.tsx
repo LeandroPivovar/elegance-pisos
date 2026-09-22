@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { brands, galleryImages, reviews } from "./catalog-data";
+import { brands, reviews } from "./catalog-data";
 import { BrandCatalog } from "@/components/site/brand-catalog";
-import { ServiceGallery } from "@/components/site/service-gallery";
+import { ServicePhotoGallery } from "@/components/site/service-photo-gallery";
 import { ReviewsCarousel } from "@/components/site/reviews-carousel";
 import {
   ArrowDownRight, ArrowRight, Check, ChevronRight, Hammer, Layers3,
@@ -9,6 +9,54 @@ import {
 } from "lucide-react";
 
 const whatsappUrl = "https://wa.me/554784981555?text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento%20para%20meu%20ambiente.";
+
+const services = [
+  {
+    title: "Piso vinílico",
+    slug: "piso-vinilico",
+    photos: [
+      { src: "/assets/servicos/piso-vinilico-escritorio.jpg", alt: "Piso vinílico amadeirado em escritório" },
+      { src: "/assets/servicos/piso-vinilico-quarto-claro.jpg", alt: "Piso vinílico claro em quarto" },
+      { src: "/assets/servicos/piso-amadeirado-painel-ripado.jpeg", alt: "Piso vinílico amadeirado em quarto com painel ripado" },
+    ],
+  },
+  {
+    title: "Rodapé",
+    slug: "rodape",
+    photos: [
+      { src: "/assets/servicos/piso-cinza-rodape-preto.jpeg", alt: "Rodapé preto contornando piso vinílico cinza" },
+      { src: "/assets/servicos/boiserie-rodape-corredor.jpeg", alt: "Rodapé branco no corredor com boiserie" },
+      { src: "/assets/servicos/rodape-branco-detalhe.jpeg", alt: "Detalhe do encontro do rodapé branco com piso amadeirado" },
+    ],
+  },
+  {
+    title: "Placa vinílica",
+    slug: "placa-vinilica",
+    photos: [
+      { src: "/assets/servicos/placa-vinilica-marmore-preto-branco.jpeg", alt: "Placas com efeito de mármore preto e branco em banheiro" },
+      { src: "/assets/servicos/placa-vinilica-marmore-claro.jpeg", alt: "Revestimento com efeito de mármore claro em parede de lavabo" },
+      { src: "/assets/servicos/placa-vinilica-marmore-preto.jpeg", alt: "Placas com efeito de mármore preto em banheiro" },
+    ],
+  },
+  {
+    title: "Painel ripado",
+    slug: "painel-ripado",
+    photos: [
+      { src: "/assets/servicos/painel-ripado-entrada.jpeg", alt: "Painel ripado amadeirado na parede de entrada" },
+      { src: "/assets/servicos/painel-ripado-sala.jpeg", alt: "Painel ripado contornando a passagem da sala para a cozinha" },
+      { src: "/assets/servicos/painel-ripado-parede.jpeg", alt: "Painel ripado de madeira junto à parede do corredor" },
+    ],
+  },
+  {
+    title: "Boiserie",
+    slug: "boiserie",
+    photos: [
+      { src: "/assets/servicos/boiserie-detalhe.jpeg", alt: "Detalhe de boiserie em parede cinza com arandela" },
+      { src: "/assets/servicos/boiserie-corredor.jpeg", alt: "Boiserie branca ao longo da parede de um corredor" },
+      { src: "/assets/servicos/boiserie-parede-cinza.jpeg", alt: "Molduras de boiserie em parede cinza" },
+    ],
+  },
+];
 
 const collections = [
   { number: "01", title: "Madeira", copy: "Calor natural, veios marcantes e acabamento que atravessa o tempo.", className: "sample-walnut" },
@@ -87,11 +135,21 @@ export default function Home() {
 
       <section className="section page-shell gallery-section" id="galeria">
         <div className="section-heading">
-          <p className="section-kicker">Serviços realizados</p>
-          <h2>Obras entregues pela nossa equipe.</h2>
-          <p>Registros de instalações de pisos, rodapés e escadas em casas, apartamentos e espaços comerciais da região.</p>
+          <p className="section-kicker">Nossos serviços</p>
+          <h2>Acabamentos para cada ambiente.</h2>
+          <p>Veja os detalhes de cada serviço em ambientes reais.</p>
         </div>
-        <ServiceGallery images={galleryImages} />
+        <div className="service-galleries">
+          {services.map((service, serviceIndex) => (
+            <section className="service-gallery-group" key={service.slug} aria-labelledby={`${service.slug}-titulo`}>
+              <div className="service-gallery-heading">
+                <span aria-hidden="true">{String(serviceIndex + 1).padStart(2, "0")}</span>
+                <h3 id={`${service.slug}-titulo`}>{service.title}</h3>
+              </div>
+              <ServicePhotoGallery title={service.title} photos={service.photos} />
+            </section>
+          ))}
+        </div>
       </section>
 
       <section className="precision-section" id="servicos">
