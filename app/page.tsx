@@ -107,6 +107,36 @@ export default function Home() {
         <a className="scroll-cue" href="#colecoes" aria-label="Rolar para coleções"><span>Explore</span><ArrowDownRight size={18} /></a>
       </section>
 
+      <section className="section page-shell gallery-section" id="galeria">
+        <div className="section-heading">
+          <p className="section-kicker">Nossos serviços</p>
+          <h2>Acabamentos para cada ambiente.</h2>
+          <p>Veja os detalhes de cada serviço em ambientes reais.</p>
+        </div>
+        <div className="service-galleries">
+          {services.map((service, serviceIndex) => (
+            <section className="service-gallery-group" key={service.slug} aria-labelledby={`${service.slug}-titulo`}>
+              <div className="service-gallery-heading">
+                <span aria-hidden="true">{String(serviceIndex + 1).padStart(2, "0")}</span>
+                <h3 id={`${service.slug}-titulo`}>{service.title}</h3>
+              </div>
+              <ServicePhotoGallery title={service.title} photos={service.photos} />
+            </section>
+          ))}
+        </div>
+      </section>
+
+      <section className="section testimonials" id="depoimentos">
+        <div className="page-shell">
+          <p className="section-kicker">Avaliações reais</p>
+          <div className="testimonials-heading">
+            <h2>A confiança aparece no resultado.</h2>
+            <p>Avaliações 5 estrelas deixadas no Google por clientes que já transformaram seus ambientes com a nossa equipe.</p>
+          </div>
+          <ReviewsCarousel reviews={reviews} />
+        </div>
+      </section>
+
       <section className="collections section-shell" id="colecoes">
         <div className="section-intro">
           <p className="section-index">[ 01 — MATERIAIS ]</p>
@@ -133,25 +163,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section page-shell gallery-section" id="galeria">
-        <div className="section-heading">
-          <p className="section-kicker">Nossos serviços</p>
-          <h2>Acabamentos para cada ambiente.</h2>
-          <p>Veja os detalhes de cada serviço em ambientes reais.</p>
-        </div>
-        <div className="service-galleries">
-          {services.map((service, serviceIndex) => (
-            <section className="service-gallery-group" key={service.slug} aria-labelledby={`${service.slug}-titulo`}>
-              <div className="service-gallery-heading">
-                <span aria-hidden="true">{String(serviceIndex + 1).padStart(2, "0")}</span>
-                <h3 id={`${service.slug}-titulo`}>{service.title}</h3>
-              </div>
-              <ServicePhotoGallery title={service.title} photos={service.photos} />
-            </section>
-          ))}
-        </div>
-      </section>
-
       <section className="precision-section" id="servicos">
         <div className="precision-visual" aria-hidden="true"><div className="floor-lines" /><div className="precision-badge"><Ruler size={27} /><span>Detalhe é<br />tudo.</span></div></div>
         <div className="precision-copy">
@@ -174,17 +185,6 @@ export default function Home() {
           <article><span>01</span><MessageCircle /><h3>Conte seu projeto</h3><p>Envie medidas, fotos ou apenas a sua ideia inicial pelo WhatsApp.</p></article>
           <article><span>02</span><Sparkles /><h3>Escolha o acabamento</h3><p>Comparamos opções coerentes com o ambiente e com a sua rotina.</p></article>
           <article><span>03</span><Check /><h3>Aprove e transforme</h3><p>Alinhamos os detalhes e executamos a instalação com cuidado.</p></article>
-        </div>
-      </section>
-
-      <section className="section testimonials" id="depoimentos">
-        <div className="page-shell">
-          <p className="section-kicker">Avaliações reais</p>
-          <div className="testimonials-heading">
-            <h2>A confiança aparece no resultado.</h2>
-            <p>Avaliações 5 estrelas deixadas no Google por clientes que já transformaram seus ambientes com a nossa equipe.</p>
-          </div>
-          <ReviewsCarousel reviews={reviews} />
         </div>
       </section>
 
